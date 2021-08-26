@@ -60,7 +60,7 @@ Public Class P_Principal
 
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
 
-        L_prAbrirConexionBitacora(gs_Ip, gs_UsuarioSql, gs_ClaveSql, "BHDicon_RT")
+        L_prAbrirConexionBitacora(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBH)
 
         Me.WindowState = FormWindowState.Maximized
         Me.Text = "DICONTA"
@@ -102,6 +102,9 @@ Public Class P_Principal
         gs_ClaveSql = Archivo(2).Split("=")(1).Trim
         gs_NombreBD = Archivo(3).Split("=")(1).Trim
         gs_CarpetaRaiz = Archivo(4).Split("=")(1).Trim
+        gs_NombreBH = Archivo(6).Split("=")(1).Trim
+        gs_NombreDies = Archivo(7).Split("=")(1).Trim
+        L_NombreDies = gs_NombreDies
     End Sub
 
     Private Sub _prLogin()

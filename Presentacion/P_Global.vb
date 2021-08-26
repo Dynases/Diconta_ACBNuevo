@@ -11,6 +11,8 @@ Module P_Global
     Public gs_ClaveSql As String = "123"
     Public gs_NombreBD As String = "BDDicon"
     Public gs_CarpetaRaiz As String = "C:\BD"
+    Public gs_NombreBH As String = "BHDicon"
+    Public gs_NombreDies As String = "DBDies_Escuela"
 
 #Region "Variables"
 

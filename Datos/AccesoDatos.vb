@@ -33,8 +33,6 @@ Public Class AccesoDatos
 
     Public Shared Function D_Datos_Tabla(_Campos As String, _Tabla As String, _Where As String) As DataTable
         'Dim _comando As OleDbCommand = MetodoDatos.CrearComando()
-
-
         _comando.CommandText = "SELECT " + _Campos + " FROM " + _Tabla + " WHERE " + _Where
         Return MetodoDatos.EjecutarComandoSelect(_comando)
     End Function

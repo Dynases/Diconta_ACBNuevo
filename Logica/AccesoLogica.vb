@@ -6,6 +6,8 @@ Imports Datos.AccesoDatos
 Public Class AccesoLogica
 
     Public Shared L_Usuario As String = "DEFAULT"
+    Public Shared L_NombreDies As String = "DBDies_Escuela"
+
 
 
 #Region "METODOS PRIVADOS"
@@ -282,13 +284,11 @@ Public Class AccesoLogica
         Dim _Ds As New DataSet
         Dim _Where As String
         If _Modo = 0 Then
-            _Where = "ZY003.ydnumi=ZY003.ydnumi and ZY002.ybnumi=ZY003.ydrol and TC004.cenumi=ZY003.ydemp  and 
-DBDies_RT.dbo.TC001 .canumi =ZY003.ydsuc"
+            _Where = "ZY003.ydnumi=ZY003.ydnumi and ZY002.ybnumi=ZY003.ydrol and TC004.cenumi=ZY003.ydemp  and " + L_NombreDies + ".dbo.TC001.canumi=ZY003.ydsuc"
         Else
-            _Where = "ZY003.ydnumi=ZY003.ydnumi and ZY002.ybnumi=ZY003.ydrol and TC004.cenumi=ZY003.ydemp and 
-DBDies_RT.dbo.TC001 .canumi =ZY003.ydsuc" + _Cadena
+            _Where = "ZY003.ydnumi=ZY003.ydnumi and ZY002.ybnumi=ZY003.ydrol and TC004.cenumi=ZY003.ydemp and" + L_NombreDies + ".dbo.TC001 .canumi=ZY003.ydsuc" + _Cadena
         End If
-        _Tabla = D_Datos_Tabla("ZY003.ydnumi,ZY003.yduser,ZY003.ydpass,ZY003.ydest,ZY003.ydcant,ZY003.ydfontsize,ZY002.ybnumi,ZY002.ybrol,ZY003.ydsuc,ZY003.ydall,ZY003.ydemp,TC004.cedesc, DBDies_RT.dbo.TC001.cadesc", "ZY003,ZY002,TC004,DBDies_RT.dbo.TC001 ", _Where + " order by ydnumi")
+        _Tabla = D_Datos_Tabla("ZY003.ydnumi,ZY003.yduser,ZY003.ydpass,ZY003.ydest,ZY003.ydcant,ZY003.ydfontsize,ZY002.ybnumi,ZY002.ybrol,ZY003.ydsuc,ZY003.ydall,ZY003.ydemp,TC004.cedesc, " + L_NombreDies + ".dbo.TC001.cadesc", "ZY003,ZY002,TC004, " + L_NombreDies + ".dbo.TC001 ", _Where + " order by ydnumi")
         _Ds.Tables.Add(_Tabla)
         Return _Ds
     End Function
